@@ -1,5 +1,10 @@
+#Imports / Dependencies
 import numpy as np
 import cv2
+import time
+
+switch_update_interval = 600
+last_epoch = 0
 faceCascade = cv2.CascadeClassifier('models/haarcascade_frontalface_default.xml')
 cap = cv2.VideoCapture(0)
 cap.set(3,640) # set Width
@@ -14,7 +19,12 @@ while True:
         minNeighbors=5,     
         minSize=(20, 20)
     )
-    print("Found" + str(len(faces)) + "Faces")
+    if len(faces) >= 1  :
+          last_epoch = time.time()
+          print("This should turn on the lights " + str(len(faces)))
+    else:
+      print("No light")
+    #print("Found" + str(len(faces)) + "Faces")
     for (x,y,w,h) in faces:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
         roi_gray = gray[y:y+h, x:x+w]
