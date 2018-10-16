@@ -10,7 +10,7 @@ GPIO.output(16, False)
 
 switch_update_interval = 600
 last_epoch = 0
-faceCascade = cv2.CascadeClassifier('models/upperbody_recognition_model.xml')
+faceCascade = cv2.CascadeClassifier('models/facial_recognition_model.xml')
 cap = cv2.VideoCapture(0)
 cap.set(3,640) # set Width
 cap.set(4,480) # set Height
@@ -26,11 +26,11 @@ while True:
     )
     if len(faces) >= 1  :
           last_epoch = time.time()
-          GPIO.output(16, True)
+          GPIO.output(16, False)
           print("This should turn on the lights " + str(len(faces)))
     else:
       print("No light")
-      GPIO.output(16,False)
+      GPIO.output(16,True)
     #print("Found" + str(len(faces)) + "Faces")
     for (x,y,w,h) in faces:
         cv2.rectangle(img,(x,y),(x+w,y+h),(255,0,0),2)
