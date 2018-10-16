@@ -27,9 +27,9 @@ while True:
     if len(faces) >= 1  :
           last_epoch = time.time()
           GPIO.output(16, False)
-          print("This should turn on the lights " + str(len(faces)))
+          print("Light Off // faces == " + str(len(faces)))
     else:
-      print("No light")
+      print("Light Off")
       GPIO.output(16,True)
     #print("Found" + str(len(faces)) + "Faces")
     for (x,y,w,h) in faces:
