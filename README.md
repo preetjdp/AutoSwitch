@@ -3,7 +3,7 @@
 
 AutoSwitch is a software powered , intelligent face detection based interface to control electronic devices
 
-  - Built using python 👩‍💻
+  - Built using python 👨🏻‍💻 🐍
   - Modular 🐱‍👤
   - Feels like Magic 🐱‍🚀
 
